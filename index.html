@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自由象棋 (同屏雙人)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="controls">
+    <button onclick="initStandardBoard()">標準開局</button>
+    <button onclick="initEmptyBoard()">清空 (自由擺放模式)</button>
+    <button onclick="undo()" id="undo-btn">悔棋</button>
+    <button onclick="finishPlacement()" id="finish-btn" class="done-btn" style="display: none;">完成擺放並開始</button>
+    <button onclick="toggleHints()" id="hint-btn" class="hint-btn">移動提示：開</button>
+  </div>
+
+  <div id="turn-indicator" class="turn-indicator red-turn">當前回合：紅方</div>
+
+  <div class="board-wrapper">
+    <svg id="visual-board" class="visual-board" width="384" height="432"></svg>
+
+    <div class="click-layer" id="click-layer"></div>
+  </div>
+
+  <div id="toolbox-container" style="display: none;">
+    <h3>備用棋盒 (可點擊或拖拽至棋盤)</h3>
+    <div class="toolbox" id="toolbox"></div>
+  </div>
+
+  <div id="game-over-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <h2 id="winner-text"></h2>
+      <p id="cheer-text"></p>
+      <button onclick="initStandardBoard()" class="restart-btn">重新開始標準局？</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
